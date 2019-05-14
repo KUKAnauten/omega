@@ -138,8 +138,6 @@ link_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(omega src/omega.cpp)
-add_executable(dummy src/dummy.cpp)
-add_executable(dummy_pub src/dummy_pub.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,8 +148,6 @@ add_executable(dummy_pub src/dummy_pub.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(omega ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(dummy ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(dummy_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(omega
@@ -160,12 +156,6 @@ target_link_libraries(omega
   drd
   usb-1.0
 #  -lpthread -lm
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(dummy
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(dummy_pub
   ${catkin_LIBRARIES}
 )
 
